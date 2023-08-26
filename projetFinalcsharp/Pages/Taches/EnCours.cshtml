@@ -1,0 +1,36 @@
+@page
+@model projetFinalcsharp.Pages.Taches.EnCours
+@{    
+}
+<br />
+<h2>Liste des Taches En Cours</h2>
+@* <a class="btn btn-primary btn-sm" href="/Taches/Create">Ajouter</a> *@
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Employe</th>
+            <th>Description</th>
+            <th>DateDebut</th>
+            <th>DateFin</th>
+            <th>Statut</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listTaches)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.employeId</td>
+                <td>@item.description</td>
+                <td>@item.dateDebut</td>
+                <td>@item.dateFin</td>
+                <td>@item.statut</td>
+                @* <td> 
+                    <a class="btn btn-primary btn-sm" href="/Taches/Edit?id=@item.id">Modifier</a>
+                    <a class="btn btn-danger btn-sm" href="/Taches/Delete?id=@item.id">Supprimer</a>
+                </td> *@
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,71 @@
+﻿@page
+@model projetFinalcsharp.Pages.Taches.EditModel
+@{
+}
+
+<br />
+<h2>Modifier Une tache</h2>
+<form method="POST">
+    <input type="hidden" name="id" value="@Model.tacheInfo.id"/>
+    <div class="row mb-3">
+        <label for="empId">Identifiant de l'employé':</label>
+        <select name="empId" id="empId">
+            @foreach (var id in Model.ChargerEmploye())  
+            {
+                <option value="@id">@id</option>
+            }
+        </select>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" for="description">Description</label>
+        <div>
+            <input type="text" class="form-control" name="description" id="description" value="@Model.tacheInfo.description"/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" for="dateDebut">Date de debut</label>
+        <div>
+            <input type="datetime-local" id="datepicker" class="datepicker form-control" name="dateDebut" value="@Model.tacheInfo.dateDebut.ToString("yyyy-MM-ddTHH:mm")" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" for="dateFin">Date fin</label>
+        <div>
+            <input type="datetime-local" id="datepicker" class="datepicker form-control" name="dateFin" value="@Model.tacheInfo.dateFin.ToString("yyyy-MM-ddTHH:mm")" />
+        </div>
+    </div>
+    <!--
+        <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" for="statut">Statut</label>
+        <div>
+            <input type="text" class="form-control" name="statut" id="statut" value="@Model.tacheInfo.statut"/>
+        </div>
+    </div>
+    -->
+    <div class="row mb-3">
+        <label for="statut">Statut:</label>
+        <select name="statut" id="statut">
+            <option value="En cours">En cours</option>
+            <option value="Finis">Finis</option>
+        </select>
+    </div>
+
+    @if(Model.succesMessage.Length > 0)
+    {
+    <div class="row mb-3">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>@Model.succesMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    }
+
+    <div class="row mb-3">
+        <div class="col-sm-3 d-grid">
+            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-check text-white"></i></button>
+        </div>
+        <div class="offset-sm-1 col-sm-3 d-grid">
+            <a class="btn btn-danger" href="/Taches/Index"><i class="fa-solid fa-x text-white"></i></a>
+        </div>
+    </div>
+</form>

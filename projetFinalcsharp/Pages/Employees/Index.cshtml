@@ -1,0 +1,41 @@
+﻿@page
+@model projetFinalcsharp.Pages.Employees.IndexModel
+@{
+}
+
+<br />
+<h2>Liste des employés</h2>
+<div>
+    <label for="idE">Entrer l'identifiant de l'employé: <span></span></label>
+    <form method="post" enctype="multipart/form-data" id="idE" class="d-flex" asp-page-handler="Search">
+        <input type="text" name="idEmployer" id="recherche">
+        <input class="btn btn-success fa-solid fa-magnifying-glass" type="submit" value="Rechercher">
+    </form>
+</div>
+<a class="btn btn-warning btn-sm col-sm-1" href="/Employees/Create"><i class="fa-duotone fa-plus text-white" style="font-size: 30px;"></i></a>
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Poste</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listEmployees)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.nom</td>
+                <td>@item.prenom</td>
+                <td>@item.poste</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Employees/Edit?id=@item.id"><i class="fa-solid fa-pencil text-white"></i></a>
+                    <a class="btn btn-danger btn-sm" href="/Employees/Delete?id=@item.id"><i class="fa-solid fa-trash text-white"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

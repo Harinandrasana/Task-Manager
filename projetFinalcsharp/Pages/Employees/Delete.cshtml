@@ -1,0 +1,14 @@
+﻿@page
+@model projetFinalcsharp.Pages.Employees.deleteModel
+@{
+    bool reussi = Model.Supprimer();
+    if (reussi)
+    {
+        Response.Redirect("/Employees/Index");
+    }
+    else
+    {
+        Console.WriteLine("Echec de la suppression");
+    }
+}
+

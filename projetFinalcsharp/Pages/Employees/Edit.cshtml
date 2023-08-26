@@ -1,0 +1,58 @@
+﻿@page
+@model projetFinalcsharp.Pages.Employees.EditModel
+@{
+}
+
+<br />
+<h2>Ajout de nouveau employé</h2>
+
+@if(Model.errorMessage.Length > 0)
+{
+    <div class="row mb-3">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>@Model.errorMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+}
+
+<form method="POST">
+    <input type="hidden" name="id" value="@Model.employeeInfo.id"/>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" for="nom">Nom</label>
+        <div>
+            <input type="text" class="form-control" name="nom" id="nom" value="@Model.employeeInfo.nom"/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" for="prenom">Prenom</label>
+        <div>
+            <input type="text" class="form-control" id="prenom" name="prenom" value="@Model.employeeInfo.prenom"/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label" for="poste">Poste</label>
+        <div>
+            <input type="text" class="form-control" name="poste" id="poste" value="@Model.employeeInfo.poste"/>
+        </div>
+    </div>
+
+    @if(Model.succesMessage.Length > 0)
+    {
+    <div class="row mb-3">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>@Model.succesMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    }
+
+    <div class="row mb-3">
+        <div class="col-sm-3 d-grid">
+            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-check text-white"></i></button>
+        </div>
+        <div class="offset-sm-1 col-sm-3 d-grid">
+            <a class="btn btn-danger" href="/Employees/Index"><i class="fa-solid fa-x text-white"></i></a>
+        </div>
+    </div>
+</form>

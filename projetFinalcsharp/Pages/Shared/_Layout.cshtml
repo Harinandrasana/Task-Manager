@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - projetFinalcsharp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/projetFinalcsharp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/fontawesome-free-6.4.2-web/css/fontawesome.min.css">
+</head>
+<body class="bg-dark">
+    <div class="navbar navbar-expand-sm navbar-dark text-center" style="background-color: #150050" >
+        <img class= src="~/image/croco.png" width="150px" height="110px" style="margin-left: 3%"/>
+    </div>
+    <div style="width: 30%">
+        <div class="my-1">
+            <div class="row vh-100 row min-vw-100">
+                <nav class="col-lg-2 d-none d-lg-block sidebar bg-dark text-center" data-bs-theme="dark">
+                    <div class="container tab-center">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <h1 class="text-center text-muted my-3">Menu</h1>
+                        <hr class="bg-white opacity-100">
+                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item my-3">
+                                    <span class="nav-link">
+                                        <i class="fas fa-home text-white"></i>
+                                        <a class="text-decoration-none text-white" asp-area="" asp-page="/Index">Accueil</a>
+                                    </span>
+                                </li>
+                                <li class="nav-item my-3">
+                                    <span class="nav-link">
+                                        <i class="fa-solid fa-users text-white"></i>
+                                        <a class="text-decoration-none text-white" asp-area="" asp-page="/Employees/Index">Employé</a>
+                                    </span> 
+                                </li>
+                                <li class="nav-item my-3">
+                                    <span class="nav-link">
+                                        <i class="fa-solid fa-person-digging text-white"></i>
+                                        <a class="text-decoration-none text-white" asp-area="" asp-page="/Taches/Index">Taches</a>
+                                    </span>
+                                </li>
+                                 <li class="nav-item my-3">
+                                    <span class="nav-link">
+                                        <i class="fa-solid fa-rotate-left text-white"></i>
+                                        <a class="text-decoration-none text-white" asp-area="" asp-page="/Taches/EnCours">Taches En Cours</a>
+                                    </span>
+                                </li>
+                                <li class="nav-item my-3">
+                                    <span class="nav-link">
+                                        <i class="fa-solid fa-circle-check text-white"></i>
+                                        <a class="text-decoration-none text-white" asp-area="" asp-page="/Taches/Finis">Taches Finis</a>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-2 container" style="background-color: #EBF1F1">
+                    <div class="p-4" style="background-color: #EBF1F1; margin: 20px;">
+                        @RenderBody()
+                        <canvas class="my-5 w-100" id="myChart" width="900" height="130"></canvas>
+                    </div>
+                </main>
+
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/fontawesome-free-6.4.2-web/js/all.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
